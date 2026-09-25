@@ -5,4 +5,15 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://ailytics.in/services.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ailytics.in/data-engineering.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/analytics-bi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/ai-ml-systems.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/custom-software.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/case-studies.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ailytics.in/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ailytics.in/remote-data-engineering.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ailytics.in/privacy.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://ailytics.in/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>

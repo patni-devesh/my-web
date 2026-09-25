@@ -94,6 +94,11 @@
       "@type": "Question",
       "name": "What industries do you work in?",
       "acceptedAnswer": { "@type": "Answer", "text": "We've shipped systems in fintech, logistics, and healthtech, and generally work well with any team that has real operational data and outgrown manual processes." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the first release?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We agree the next priorities in two-week increments and provide monitoring, documentation, and a practical handoff path for your team." }
     }
   ]
 }
@@ -731,6 +736,15 @@
     color: var(--ink-faint);
   }
 
+  .mobile-booking{
+    display:none;
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:60;
+    box-shadow: 0 10px 24px rgba(16,24,44,0.24);
+  }
+
   /* ---------- reveal ---------- */
   .reveal{
     opacity: 0;
@@ -771,6 +785,7 @@
     .process-grid{ grid-template-columns: 1fr; }
     .form-row{ grid-template-columns: 1fr; }
     .status-strip .meta{ display:none; }
+    .mobile-booking{ display:inline-flex; }
   }
 </style>
 </head>
@@ -788,12 +803,12 @@
       <nav>
         <a href="#top" class="logo"><span class="mark"></span>AILYTICS</a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#services">Services</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#stack">Stack</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-cta">
           <a href="https://calendly.com/ailyticssystem/30min" class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer">Book a call</a>
@@ -815,8 +830,8 @@
           <h1>From messy data to <em>production-ready systems.</em></h1>
           <p class="lede">Ailytics is the accountable engineering team for growing companies that need reliable pipelines, trusted metrics, and software their own team can maintain.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Start a project →</a>
-            <a href="#work" class="btn btn-ghost">See our work</a>
+            <a href="contact.html" class="btn btn-primary">Start a project →</a>
+            <a href="case-studies.html" class="btn btn-ghost">See our work</a>
           </div>
           <div class="hero-stats">
             <div><div class="num">40+</div><div class="label">systems shipped</div></div>
@@ -1015,33 +1030,6 @@
       </div>
     </section>
 
-    <!-- DELIVERY PRINCIPLES -->
-    <section class="testimonials">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="section-tag">What to expect</span>
-          <h2>A technical partner, not a black box</h2>
-          <p>Every engagement is designed to make progress visible and ownership clear.</p>
-        </div>
-        <div class="testimonial-grid reveal">
-          <div class="quote-card">
-            <p class="q">Architecture decisions are documented before implementation, with the trade-offs made visible to your technical team.</p>
-            <div class="quote-attr">
-              <div class="quote-avatar"></div>
-              <div><div class="name">Shared technical ownership</div><div class="role">No hidden implementation layer</div></div>
-            </div>
-          </div>
-          <div class="quote-card">
-            <p class="q">Working systems are delivered in increments, then handed over with monitoring, documentation, and operational runbooks.</p>
-            <div class="quote-attr">
-              <div class="quote-avatar"></div>
-              <div><div class="name">Built for maintainability</div><div class="role">Your team can operate what we ship</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq">
       <div class="wrap">
@@ -1065,6 +1053,10 @@
           <details class="faq-item">
             <summary>What industries do you work in?</summary>
             <p>We've shipped systems in fintech, logistics, and healthtech, and generally work well with any team that has real operational data and outgrown manual processes.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What happens after the first release?</summary>
+            <p>We agree the next priorities in two-week increments and provide monitoring, documentation, and a practical handoff path for your team.</p>
           </details>
         </div>
       </div>
@@ -1137,11 +1129,13 @@
     <div class="wrap">
       <span class="copyright">© 2026 Ailytics. All rights reserved.</span>
       <ul class="foot-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener noreferrer">Book a call</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#" onclick="return false;">Privacy</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case studies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://calendly.com/ailyticssystem/30min" target="_blank" rel="noopener noreferrer">Book a call</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
       </ul>
     </div>
   </footer>
@@ -1177,7 +1171,7 @@
       revealEls.forEach(el => el.classList.add('in'));
     }
 
-    // contact form (front-end only demo)
+    // contact form
     const form = document.getElementById('contactForm');
     const status = document.getElementById('form-status');
     form.addEventListener('submit', (e) => {
@@ -1186,11 +1180,9 @@
         form.reportValidity();
         return;
       }
-      status.textContent = 'Thanks. This preview form is ready to connect to your inbox or CRM before launch.';
-      status.style.color = 'var(--accent-ink)';
-      status.classList.add('visible');
-      form.reset();
+      window.location.href = 'thank-you.html';
     });
   </script>
+  <a class="btn btn-primary mobile-booking" href="https://calendly.com/ailyticssystem/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
 </body>
 </html>
