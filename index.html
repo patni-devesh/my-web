@@ -663,54 +663,6 @@
     max-width: 62ch;
   }
 
-  /* ---------- contact ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 64px;
-  }
-  .contact-info .item{
-    margin-bottom: 26px;
-  }
-  .contact-info .item .k{
-    font-family: var(--font-mono);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-faint);
-    margin-bottom: 6px;
-  }
-  .contact-info .item .v{ font-size: 16px; }
-  .contact-info .item a.v:hover{ color: var(--accent-ink); }
-
-  form{
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 32px;
-  }
-  .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
-  .field label{ font-size: 13px; font-weight:600; color: var(--ink-soft); }
-  .field input, .field select, .field textarea{
-    font-family: var(--font-body);
-    font-size: 14.5px;
-    padding: 11px 13px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--line-strong);
-    background: #FAFBFD;
-    color: var(--ink);
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline: none;
-    border-color: var(--accent);
-    background: #fff;
-  }
-  .field textarea{ resize: vertical; min-height: 100px; }
-  .form-note{ font-size: 12.5px; color: var(--ink-faint); margin-top: 12px; }
-  #form-status{ font-size: 13.5px; margin-top: 14px; font-weight: 500; display:none; }
-  #form-status.visible{ display:block; }
-
   /* ---------- footer ---------- */
   footer{
     border-top: 1px solid var(--line);
@@ -762,7 +714,6 @@
     .work-grid{ grid-template-columns: 1fr; }
     .testimonial-grid{ grid-template-columns: 1fr; }
     .fit-grid{ grid-template-columns: 1fr; }
-    .contact-grid{ grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 760px){
     .wrap{ padding: 0 20px; }
@@ -783,7 +734,6 @@
     .hero-stats{ gap: 24px; }
     section{ padding: 60px 0; }
     .process-grid{ grid-template-columns: 1fr; }
-    .form-row{ grid-template-columns: 1fr; }
     .status-strip .meta{ display:none; }
     .mobile-booking{ display:inline-flex; }
   }
@@ -812,7 +762,7 @@
         </ul>
         <div class="nav-cta">
           <a href="https://calendly.com/ailyticssystem/30min" class="btn btn-ghost btn-sm" target="_blank" rel="noopener noreferrer">Book a call</a>
-          <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Start a project</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -1062,67 +1012,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <div class="contact-grid">
-          <div class="contact-info reveal">
-            <span class="section-tag">Get in touch</span>
-            <h2>Tell us what's broken</h2>
-            <p style="color:var(--ink-soft); margin-bottom:32px;">Most engagements start with a 30-minute audit call — no deck, just a look at your current setup and where it's costing you time.</p>
-
-            <div class="item">
-              <div class="k">Email</div>
-              <a class="v" href="mailto:hello@ailytics.in">hello@ailytics.in</a>
-            </div>
-            <div class="item">
-              <div class="k">Response time</div>
-              <div class="v">Within 1 business day</div>
-            </div>
-            <div class="item">
-              <div class="k">First conversation</div>
-              <div class="v">A focused 30-minute audit of the problem and the next practical step.</div>
-            </div>
-          </div>
-
-          <form id="contactForm" class="reveal" novalidate>
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required autocomplete="name">
-              </div>
-              <div class="field">
-                <label for="email">Work email</label>
-                <input type="email" id="email" name="email" required autocomplete="email">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" autocomplete="organization">
-              </div>
-              <div class="field">
-                <label for="budget">Estimated budget</label>
-                <select id="budget" name="budget">
-                  <option value="">Select a range</option>
-                  <option>Under $10k</option>
-                  <option>$10k – $50k</option>
-                  <option>$50k – $150k</option>
-                  <option>$150k+</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label for="message">What are you trying to solve?</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message</button>
-            <p class="form-note">We will use these details only to respond to your enquiry.</p>
-            <p id="form-status"></p>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -1170,18 +1059,6 @@
     } else {
       revealEls.forEach(el => el.classList.add('in'));
     }
-
-    // contact form
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('form-status');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      window.location.href = 'thank-you.html';
-    });
   </script>
   <a class="btn btn-primary mobile-booking" href="https://calendly.com/ailyticssystem/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
 </body>
